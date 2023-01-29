@@ -1,0 +1,427 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap" rel="stylesheet"> 
+<style>
+    .rolem {
+        padding-right: 0;
+    }
+
+    .champ-i {
+        padding-left: 0;
+    }
+
+    .image-text {
+    
+        background-color:#00000045;
+    
+    }
+    .right {
+        text-align: right;
+    }
+    .image-text {
+        padding: 14px;
+        font-size: 20;
+        font-weight: bold;
+    }
+
+    body {
+        margin: 0;
+        color: white;
+    }
+    .side-column {
+        flex: 0 0 300px;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        flex-direction: column;
+        height: 100vh;
+    }
+    .box {
+        flex: 1 0 16.66666%;
+        height: 16.6666vh;
+        width: 300px;
+        border-bottom: 3px solid rgb(25, 25, 25);;
+    }
+
+    .box img {
+        height: inherit;
+        width:inherit;
+    }
+    .text-img {
+        background-size: cover;
+        background-color: rgb(95, 95, 95);
+    }
+
+    .image-text {
+        height: 100%;
+    }
+
+    .mid-box {
+        background-color: rgb(25, 25, 25);
+    }
+
+    .champ-container {
+        height: max-content;
+        width: 100%;
+        display: flex;
+        justify-content: center; /* Center the table horizontally */
+        align-items: center; /* Center the table vertically */
+        overflow:hidden;
+    }
+
+    table {
+        width: 100%;
+        border-radius: 8px; /* Add 4px rounded corners to the table */
+        padding: 8px;
+        margin: 8px;
+        background-color: rgb(43, 43, 43);
+        max-height:78vh;
+        overflow-y:scroll;
+        display:block;
+    }
+
+    .header-tr {
+        overflow: hidden;
+    }
+
+    .tableFixHead {
+        overflow-y: auto; /* make the table scrollable if height is more than 200 px  */
+      }
+      .tableFixHead thead th {
+        position: sticky; /* make the table heads sticky */
+        top: 0px; /* table head will be placed from the top of the table and sticks to it */
+      }
+      table {
+        border-collapse: collapse; /* make the table borders collapse to each other */
+        width: 100%;
+      }
+      th,
+      td {
+        padding: 8px 16px;
+      }
+      th {
+        background-color: rgb(40, 40, 40);
+      }
+
+      .title {
+        font-family: 'Josefin Sans', sans-serif;
+        text-align: center;
+        color: white;
+        font-weight: 400;
+        font-size: 50;
+        margin: 8px;
+      }
+    
+    .helper {
+        font-family: 'Courier New', Courier, monospace;
+        text-align: center;
+    }
+    .eval {
+        font-size: 60;
+        text-align: center;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    }
+    </style>
+
+<div style="display: flex; flex-wrap: wrap;">
+    <div class="side-column">
+        <div class="box">
+            <div class="text-img" style="background-color: rgb(25, 25, 25);" id="Blue">
+                <div class="image-text">
+                    <h1 style="color: rgb(43, 43, 255); text-align: center; font-size: 50;">Blue</h1>
+                    <div class="eval" style="font-weight: 400;"></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="box">
+            <div class="text-img" style="background-image: url();" id="pick-1">
+                <div class="image-text">
+                    Pick #1
+                </div>
+            </div>
+
+        </div>
+
+        <div class="box">
+            <div class="text-img" style="background-image: url();" id="pick-4">
+                <div class="image-text">
+                    Pick #4
+                </div>
+            </div>
+
+        </div>
+        <div class="box">
+            <div class="text-img" style="background-image: url();" id="pick-5">
+                <div class="image-text">
+                    Pick #5
+                </div>
+            </div>
+
+        </div>
+        <div class="box">
+            <div class="text-img" style="background-image: url();" id="pick-8">
+                <div class="image-text">
+                    Pick #8
+                </div>
+            </div>
+
+        </div>
+        <div class="box">
+            <div class="text-img" style="background-image: url();" id="pick-9">
+                <div class="image-text">
+                    Pick #9
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="flex: 1;" class="mid-box">
+        <div class="title"><div>Draft-O-Matic</div></div>
+        <div class="helper">Current Evaluation</div>
+        
+            <div class="helper"><span class="column helper">Depth is <b>{{Depth}}</b></span>  - 
+                <span class="column helper">Nodes Analyzed is <b>{{Nodes_Analyzed}}</b></span></div>
+
+        <div class="helper" style="text-align: right; margin-right: 10px; margin-top: 4px;"> 
+            <script>
+                function new_depth(depth) {
+                    const params = new URLSearchParams(location.search);
+                    params.set('d', depth);
+                    document.location = "?" + params;
+                }
+            </script>
+            <button type="button" class="btn btn-outline" onclick="new_depth(4)">Depth 4</button>
+            <button type="button" class="btn btn-outline" onclick="new_depth(5)">Depth 5</button>
+            <button type="button" class="btn btn-outline-danger" onclick="window.location='/d/,'">Reset</button>
+            <button type="button" class="btn btn-outline-warning">Undo</button>        
+        </div>
+        <div class="champ-container tableFixHead">
+            <table>
+                <colgroup>
+                    <col span="1" style="width: 5%;">
+                    <col span="1" style="width: 5%;">
+                    <col span="1" style="width: 65%;">
+                    <col span="1" style="width: 25%;">
+                 </colgroup>
+                <thead class="bg-neutral-900 sticky top-0 z-[1]">
+                    <tr class="header-tr">
+                        <th></th>
+                        <th></th>
+                        <th>Champion</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody id="cdl">
+                </tbody>
+            </table>
+        </div>    
+    </div>
+    <div class="side-column right">
+        <div class="box">
+            <div class="text-img" style="background-color: rgb(25, 25, 25);" id="Red">
+                <div class="image-text">
+                    <h1 style="color: rgb(255, 45, 45); text-align: center; font-size: 50;">Red</h1>
+                    <div class="eval" style="font-weight: 400;"></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="box">
+            <div class="text-img" style="background-image: url();" id="pick-2">
+                <div class="image-text">
+                    Pick #2
+                </div>
+            </div>
+
+        </div>
+
+        <div class="box">
+            <div class="text-img" style="background-image: url();" id="pick-3">
+                <div class="image-text">
+                    Pick #3
+                </div>
+            </div>
+
+        </div>
+        <div class="box">
+            <div class="text-img" style="background-image: url();" id="pick-6">
+                <div class="image-text">
+                    Pick #6
+                </div>
+            </div>
+
+        </div>
+        <div class="box">
+            <div class="text-img" style="background-image: url();" id="pick-7">
+                <div class="image-text">
+                    Pick #7
+                </div>
+            </div>
+
+        </div>
+        <div class="box">
+            <div class="text-img" style="background-image: url();" id="pick-10">
+                <div class="image-text">
+                    Pick #10
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    let evaluation_state = {{e}};
+    var draft_picks = {{draft}};
+
+    function get_image_icon(image) {
+        return "https://ddragon.leagueoflegends.com/cdn/" + lol_version + "/img/champion/" + image + ".png"
+    }
+
+    function get_image_splash(key) {
+        return "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + key + "_0.jpg"
+    }
+
+    function update_draft(draft) {
+        let dl = draft.length;
+        for (let i = 0; i < dl; i++) {
+            let draft_element = document.getElementById("pick-"+(i+1));
+            draft_element.style.backgroundImage="url(" + get_image_splash(champ_cid_to_key[draft[i] & 0b111111111111]);
+            console.log(champ_cid_to_key[draft[i] & 4095]);
+            console.log(draft_element.getElementsByClassName('image-text')[0]);
+            console.log(champ_data['data'][champ_cid_to_key[draft[i] & 4095]['name']]);
+            let c_name = champ_data['data'][champ_cid_to_key[draft[i] & 4095]]['name'];
+            draft_element.getElementsByClassName('image-text')[0].innerHTML = c_name;   
+            let myImage = new Image(50, 50);
+            myImage.src = "/static/" + (draft[i] >> 12).toString() + ".svg";
+            myImage.style = "height: 35; width: 35;"
+            draft_element.getElementsByClassName('image-text')[0].append(document.createElement('br')) 
+            draft_element.getElementsByClassName('image-text')[0].append(myImage)
+        }
+    }
+
+    function update_e(eval) {
+        let ndr = [];
+        for (let row in eval[0]) {
+            let champ = eval[0][row]
+            if (!champ[1][champ[1].length-1] in draft_picks) {
+                ndr.push(champ)
+            }
+        }
+        
+        let champ_data_eval = eval[0];
+        
+        champ_data_eval.sort(function(a, b) {
+            return b[0] - a[0];
+        });
+
+        console.log(champ_data_eval)
+
+        for (let row in champ_data_eval) {
+            let champ = champ_data_eval[row]
+
+            if (draft_picks.indexOf(champ[1][champ[1].length-1] ) >= 0) {
+                continue
+            }
+
+            let champ_row = document.createElement('tr')
+            let champ_image = document.createElement('td')
+
+            let myImage = new Image(50, 50);
+            console.log(champ[1][champ[1].length-1])
+            myImage.src = get_image_icon(champ_cid_to_key[champ[1][champ[1].length-1] & 0b111111111111]);
+            myImage.style = "height: 35; width: 35;"
+
+            champ_image.append(myImage)
+
+
+
+            let role = document.createElement('td')
+            role.classList.add("rolem")
+
+            let role_i = new Image(50, 50);
+            console.log(champ[1][champ[1].length-1])
+            role_i.src = "/static/" + (champ[1][champ[1].length-1] >> 12).toString() + ".svg";
+            role_i.style = "height: 35; width: 35;"
+
+            role.append(role_i)
+
+            champ_row.append(role)
+            champ_row.append(champ_image)
+
+            champ_name = document.createElement('td')
+            champ_name.innerHTML = champ_cid_to_key[champ[1][champ[1].length-1] & 0b111111111111]
+            champ_row.append(champ_name)
+
+            wr = document.createElement('td')
+            let r = champ[0]
+
+            max = [true, false, false, true, true, false, false, true, true]
+            if (!max[draft_picks.length]) {
+                r = r
+            }
+
+            wr.innerHTML = r.toFixed(2)
+            champ_row.append(wr)
+
+            champ_row.onclick = function() {
+                pick_champ(champ[1][champ[1].length-1]);
+            }
+            
+            document.getElementById("cdl").appendChild(champ_row)
+        }
+    }
+
+    var lol_version;
+    var champ_data;
+
+    $.ajax({
+        type: "GET",
+        url: "https://ddragon.leagueoflegends.com/realms/na.json",
+        success: function(response) {
+            console.log(response)
+            lol_version = response["v"]
+        }
+    });
+    $.ajax({
+        type: "GET",
+        url: "https://ddragon.leagueoflegends.com/realms/na.json",
+        success: function(response) {
+            console.log(response)
+            lol_version = response["v"]
+        }
+    });
+
+    function get_champ_data() {
+        $.ajax({
+            type: "GET",
+            url: "https://ddragon.leagueoflegends.com/cdn/" + lol_version + "/data/en_US/champion.json",
+            success: function(response) {
+                console.log(response)
+                champ_data = response
+            }
+        })
+    }
+    
+    var champ_cid_to_key = {};
+
+    setTimeout(get_champ_data, 100);
+    setTimeout(() => {
+        for (champ_name in champ_data['data']) {
+            champ_cid_to_key[Number(champ_data['data'][champ_name]['key'])]= champ_name
+        }
+        update_draft(draft_picks)
+        update_e(evaluation_state)
+
+    }, 400)
+
+    function pick_champ(champ) {
+        draft_picks.push(champ)
+        window.location = "/d/" + draft_picks.join(',');
+    }
+</script>
+
+
+<script>
+</script>  

@@ -1,0 +1,162 @@
+Desired Features:
+Show the optimized counter 
+List out the best next picks
+Show the balance of engage, physical damadge, true, magic
+
+
+
+
+In the MIN MAX optimization, order the possible moves by how likely they are to be good then Alpha beta prune it - https://www.youtube.com/watch?v=l-hh51ncgDI
+
+I dont know how useful this is: https://en.m.wikipedia.org/wiki/Binomial_proportion_confidence_interval https://statpages.info/confint.html
+
+This is examples of GUIs: https://pick-ban-gg.web.app/   https://www.metasrc.com/5v5/counterpicker
+
+How to develop the Hueristics: https://www.youtube.com/watch?v=7ud5Jk1iH98
+
+
+
+
+
+
+Judging Criteria: https://github.com/MLH/mlh-policies/blob/main/standard-hackathon-rules.md
+- Technology: How technically impressive was the hack? Was the technical problem the team tackled difficult? Did it use a particularly clever technique or did it use many different components? Did the technology involved make you go "Wow"?
+- Design: Did the team put thought into the user experience? How well designed is the interface? For a website, this might be about how beautiful the CSS or graphics are. For a hardware project, it might be more about how good the human-computer interaction is (e.g. is it easy to use or does it use a cool interface?).
+- Completion: Does the hack work? Did the team achieve everything they wanted?
+- Learning: Did the team stretch themselves? Did they try to learn something new? What kind of projects have they worked on before? If a team which always does virtual reality projects decides to switch up and try doing a mobile app instead, that exploration should be rewarded.
+
+Judging Criteria: https://github.com/MLH/mlh-policies/blob/main/contest-terms.md
+- originality/creativity (25%);
+- technical complexity (25%);
+- adherence to Theme (25%) and
+- practical implementation (25%).
+
+How to Win EVERY Hackathon: https://www.youtube.com/watch?v=5VlJ4aT0UmY
+- Choose a project with an emotional pull / story
+- Designate roles in the project from the begining (Who does backend, frontend, etc)
+- What technologies can you use to make this project non-trivial and impressive
+- Use the last 8 hours to polish the demo
+
+
+
+
+
+
+
+Features:
+- Calulate the percentage chance each team wins
+- Let you determine what champs each team member can play
+- Uses data that is accurate to the current meta
+
+Technical aspects:
+- Optimized Hueristics: Just do what Jysense said in lolalytics discord
+- alpha-beta pruning: Just do that
+- Action / Move ordering: Order possible picks / bans based on their LoLalytics ranking
+- Transposition Tables: When calculating huristics carry over the previous hueristic and only add in the new calculations for the new champion (So if you already have Annie and Sivir picked with a hueristic of 3 then when the enemy counter picks yone, then just calculate his matchups and add it to the current hueristic)
+- iterative deepening: Do Alpha Beta pruning for 1 layer deep, then 2, then 3 etc.
+
+
+
+
+
+
+
+
+Modified:
+Hi we are Zeri and Blah and this is my project Draft-O-Matic, This tool is ment to optimize the process in League Of Legends of selecting champions from a pool of available options to create the best team composition, with the goal of creating a balanced and effective team.
+
+Our tool uses 
+- advanced min-max algorithm
+- along with alpha-beta pruning
+- transposition tables
+- iterative deepening
+- action ordering
+- and optimized heuristics
+All to determine the most optimal team composition for any given match. 
+
+With just a few clicks, our tool will help you draft a team that is guaranteed to give you the upper hand. 
+
+It takes into account the 
+- strengths and weaknesses of each champion
+- the current meta, your opponent's draft
+- and your team's individual playstyles. 
+
+This allows our tool to provide personalized recommendations that are tailored to your specific needs.
+
+With the Draft-O-Matic, you can finally have the edge dominate your games, all for the price of $0.
+
+Now let us demonstrate
+
+
+First we select what champions each player is able to play
+Then we start the AI up and let it simulate the entire pick ban process analyzing every possible combination of picks and bans in all 20 phases of the pick ban cycle and all 161 champions. Finally it spits out the most optimal series of picks and bans. If there are any deviations to this plan then on the fly, it will recalculate and give us the new best strategy. 
+
+
+
+
+
+
+
+
+
+
+
+Pitch: (From Chat.openai.com)
+Are you tired of trying to figure out the best team composition in League of Legends only to be out-drafted by your opponents? Introducing the League of Legends Pick Ban Drafting Utility.
+
+Our tool uses advanced min-max algorithms, along with alpha-beta pruning, transposition tables, iterative deepening, action ordering, and optimized heuristics, to determine the most optimal team composition for any given match. With just a few clicks, our tool will help you draft a team that is guaranteed to give you the upper hand.
+
+Not only does our tool take into account the strengths and weaknesses of each champion, but it also considers the current meta, your opponent's draft, and your team's individual playstyles. This allows our tool to provide personalized recommendations that are tailored to your specific needs.
+
+With the League of Legends Pick Ban Drafting Utility, you can finally have the edge you need to dominate the Rift. So why wait? Try it out now and see the difference for yourself!
+
+
+Pitch 2:
+Hello everyone, today I would like to introduce to you a new league of legends pick ban drafting utility that uses advanced algorithms to determine the most optimal team composition.
+
+Our tool is based on a min-max algorithm, which is a common method used in game theory to determine the best possible move in a given situation. In the context of league of legends, this means analyzing the strengths and weaknesses of each champion in the pool, and choosing the ones that will maximize your team's chances of victory.
+
+To make this process even more effective, we have implemented several advanced techniques, such as alpha-beta pruning, transposition tables, iterative deepening, and action ordering. These techniques allow us to quickly and efficiently explore the vast space of possible team compositions, and identify the ones that will give you the best chance of success.
+
+Our tool is easy to use, simply input the champions that are available in the current draft, and our algorithms will do the rest. The result is a team composition that is optimized for victory, and ready for you to take into battle.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

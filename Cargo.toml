@@ -1,0 +1,26 @@
+[package]
+name = "draftomatic"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "draftomatic"
+# "cdylib" is necessary to produce a shared library for Python to import from.
+#
+# Downstream Rust code (including code in `bin/`, `examples/`, and `tests/`) will not be able
+# to `use draftomatic;` unless the "rlib" or "lib" crate type is also included, e.g.:
+# crate-type = ["cdylib", "rlib"]
+crate-type = ["cdylib"]
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0.91"
+once_cell = "1.17.0"
+cached = "0.42.0"
+rayon = "1.6.1"
+lazy_static = "1.4.0"
+dashmap = "5.4.0"
+
+[dependencies.pyo3]
+version = "0.18.0"
+features = ["extension-module"]
