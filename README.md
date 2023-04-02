@@ -26,3 +26,5 @@ I hope to turn Draft-O-Matic into a full fledged desktop application with much m
 ## How to run Draft-O-Matic
 
 First you will need to run the `pull_data.py` then `parse_data.py` and then the `main.py` but this also runs a rust backend for doing the actual draft calculations so make sure that is installed.
+
+* Note this was hacked together very quickly and therefore is riddled with bugs, use at your own risk!
