@@ -1,3 +1,5 @@
+https://www.youtube.com/watch?v=Ym5FtqrchxU
+
 ## Inspiration
 I am on my high school's esports team and I often have to analyze drafts because that is one of the most important parts about a game. It determines the dynamics of a game, the play styles, the lane states, and so much more. I looked around for any good websites that could analyze drafts and tell you what the best champions to pick are but they all were very rudimentary in their analysis. So I decided to build an AI to automatically do this.
 
